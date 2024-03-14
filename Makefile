@@ -1,12 +1,12 @@
 CC=gcc
 TARGET=add-nbo
-OBJS=add-nbo.o
+CXXFLAGS=-g
 
-$(TARGET) : $(OBJS)
-	$(CC) -o $@ $(OBJS)
+all: $(TARGET)
 
-add-nbo.o : add-nbo.c
-	$(CC) -c -o add-nbo.o add-nbo.c
+$(TARGET) : add-nbo.o
+	$(CC) $^ $(LOADLIBES) $(LDLIBS) -o $@ 
 
 clean:
-	rm $(OBJECT) $(TARGET)
+	rm -f $(TARGET)
+	rm -f *.o
