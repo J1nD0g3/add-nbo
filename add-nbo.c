@@ -11,6 +11,7 @@ uint32_t read_num(char* f_name)
 	int filesize = ftell(f);
 	if(filesize < 4){
 		printf("Error : file size is less than 4 bytes.\n");
+		fclose(f);
 		exit(0);
 	}
 	
